@@ -121,10 +121,11 @@ class FeaturedPerspectives {
     <?php
   }
 
+  // called via ajax
   public function flush_rewrite_rules() {
     global $wp_rewrite;
     $wp_rewrite->flush_rules();
-    die();
+    die(); // this is standard WP practice for ajax calls - it prevent WP from returning "0"
   }
 
   public function add_featured_perspective($content) {
@@ -135,7 +136,7 @@ class FeaturedPerspectives {
         <script data-electnext id='enxt-script' type='text/javascript'>
           //<![CDATA[
             var _enxt = _enxt || [];
-            _enxt.push(['set_article', '$post->ID']);
+            _enxt.push(['set_article', '{$post->ID}']);
             _enxt.push(['set_account', '{$this->api_key}']);
             _enxt.push(['setup_featured_perspective']);
 
