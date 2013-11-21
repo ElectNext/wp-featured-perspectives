@@ -3,7 +3,6 @@
 class FeaturedPerspectives {
   private $version = '1.0';
   private $script_url = '/api/v1/enxt.js';
-  private $url_prefix = 'https://';
   private $site_name = 'electnext.dev';
   private $email_contact = 'apikey@electnext.com';
   private $api_key;
@@ -25,7 +24,9 @@ class FeaturedPerspectives {
     add_action('admin_head', array($this, 'display_missing_api_key_warning'));
     add_action('admin_init', array($this, 'init_settings'));
     add_action('admin_menu', array($this, 'add_settings_page'));
+    add_action('wp_ajax_flush_rewrite_rules', array($this, 'flush_rewrite_rules'));
     add_filter('the_content', array($this, 'add_featured_perspective'));
+    add_action('init', array($this, 'init_versa_feed'));
   }
 
   public function display_missing_api_key_warning() {
@@ -70,16 +71,42 @@ class FeaturedPerspectives {
   }
 
   public function display_settings_page() {
+    // Getting the custom RSS feed initialzed requires flushing the rewrite
+    // rules *after* the feed is initialized. To make this painless for users,
+    // it's hooked to saving the API key. Unfortunately there's no way to take
+    // a custom action on save without completely throwing out the standard WP
+    // handling for settings pages, so we'll do it via ajax.
     ?>
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+        $( "#wpfp_settings_form" ).submit(function(ev) {
+          ev.preventDefault();
+
+          $.ajax({
+            type: 'POST',
+            url: 'admin-ajax.php',
+            context: $(this),
+            data: {
+              action: 'flush_rewrite_rules'
+            },
+            complete: function() {
+              this.off('submit');
+              this.submit();
+            }
+          })
+        });
+      });
+    </script>
+
     <div class="wrap">
       <?php screen_icon(); ?>
       <h2><?php echo $this->title; ?></h2>
 
-      <form action="options.php" method="post">
+      <form action="options.php" method="post" id="wpfp_settings_form">
         <?php settings_fields('wpfp_settings'); ?>
         <?php do_settings_sections('wpfp'); ?>
         <p class="submit">
-          <input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes', 'wpfp'); ?>" class="button button-primary" />
+          <input name="versa_settings_submit" type="submit" value="<?php esc_attr_e('Save Changes', 'wpfp'); ?>" class="button button-primary" />
         </p>
 
         <p><?php
@@ -92,6 +119,12 @@ class FeaturedPerspectives {
       </form>
     </div>
     <?php
+  }
+
+  public function flush_rewrite_rules() {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+    die();
   }
 
   public function add_featured_perspective($content) {
@@ -120,5 +153,13 @@ class FeaturedPerspectives {
     }
 
     return $content;
+  }
+
+  public function init_versa_feed() {
+    add_feed('versa', array($this, 'add_versa_feed'));
+  }
+
+  public function add_versa_feed() {
+    load_template(dirname(__FILE__) . '/versa_feed.php');
   }
 }
