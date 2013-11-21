@@ -7,7 +7,7 @@ Tested up to: 3.7.1
 Stable tag: 1.1
 License: GPLv2 or later
 
-Automatically add Featured Perspectives to your news posts. We showcase multiple expert perspectives for your readers, and share that premium revenue back with you.
+A plugin for news publishers using WordPress. Our plugin automatically adds Featured Perspectives to your posts. We showcase multiple expert perspectives for readers, and share that premium revenue back with you.
 
 == Description ==
 
@@ -18,7 +18,7 @@ We believe in a thriving press, and an informed and engaged public. So we've cre
 
 == Installation ==
 
-Upload to your plugin folder just like any other plugin, and activate. Then [email our WordPress partnerships director](mailto:apikey@electnext.com?subject=WordPress%20plugin%20API%20key%20request) to receive an API key which will give you access to our data. There is no fee and we do not display ads.
+[Email our WordPress partnerships director](mailto:apikey@electnext.com?subject=WordPress%20plugin%20API%20key%20request) to establish a partnership with us, and we'll send you an API key for activating the plugin. Then upload the plugin to your plugin folder just like any other plugin, and activate it. After activation, go to the Featured Perspectives settings page to enter your API key.
 
 == Changelog ==
 
