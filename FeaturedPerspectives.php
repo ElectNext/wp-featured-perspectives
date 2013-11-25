@@ -3,7 +3,7 @@
 class FeaturedPerspectives {
   private $version = '1.0';
   private $script_url = '/api/v1/enxt.js';
-  private $site_name = 'electnext.dev';
+  private $site_name = 'electnext.com';
   private $email_contact = 'apikey@electnext.com';
   private $api_key;
   private $short_title;
