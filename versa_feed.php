@@ -75,7 +75,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
         <title><?php the_title_rss(); ?></title>
         <link><?php the_permalink_rss(); ?></link>
         <pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
-        <guid isPermaLink="false"><?php the_ID(); ?></guid>
+        <guid isPermaLink="false"><?php echo FeaturedPerspectives::parameterize(get_bloginfo('name')) . '-'; the_ID(); ?></guid>
         <?php
         /**
          * Fires at the end of each RSS2 feed item.
