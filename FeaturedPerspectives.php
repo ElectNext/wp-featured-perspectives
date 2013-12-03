@@ -132,11 +132,12 @@ class FeaturedPerspectives {
     global $post;
     // the is_main_query() check ensures we don't add to sidebars, footers, etc
     if (is_main_query() && is_single()) {
+      $guid = FeaturedPerspectives::get_post_guid();
       $fp = "
         <script data-electnext id='enxt-script' type='text/javascript'>
           //<![CDATA[
             var _enxt = _enxt || [];
-            _enxt.push(['set_article', '{$post->ID}']);
+            _enxt.push(['set_article', '{$guid}']);
             _enxt.push(['set_account', '{$this->api_key}']);
             _enxt.push(['setup_featured_perspective']);
 
@@ -162,6 +163,12 @@ class FeaturedPerspectives {
 
   public function add_versa_feed() {
     load_template(dirname(__FILE__) . '/versa_feed.php');
+  }
+
+  // make this a static function so we can call it easily from versa_feed.php
+  static public function get_post_guid() {
+    global $post;
+    return FeaturedPerspectives::parameterize(get_bloginfo('name')) . '-' . $post->ID;
   }
 
   static public function parameterize($string, $sep = '-') {
