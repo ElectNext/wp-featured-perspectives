@@ -132,7 +132,7 @@ class FeaturedPerspectives {
     global $post;
     // the is_main_query() check ensures we don't add to sidebars, footers, etc
     if (is_main_query() && is_single()) {
-      $guid = FeaturedPerspectives::get_guid();
+      $guid = FeaturedPerspectives::get_post_guid();
       $fp = "
         <script data-electnext id='enxt-script' type='text/javascript'>
           //<![CDATA[
@@ -166,7 +166,7 @@ class FeaturedPerspectives {
   }
 
   // make this a static function so we can call it easily from versa_feed.php
-  static public function get_guid() {
+  static public function get_post_guid() {
     global $post;
     return FeaturedPerspectives::parameterize(get_bloginfo('name')) . '-' . $post->ID;
   }
