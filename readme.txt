@@ -22,4 +22,5 @@ We believe in a thriving press, and an informed and engaged public. So we've cre
 
 == Changelog ==
 
+= 1.1 = Bug fix: correct the article ID used in the JS snippet
 = 1.0 = First version
