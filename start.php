@@ -4,7 +4,7 @@ Plugin Name: Featured Perspectives
 Plugin URI: http://www.electnext.com/
 Description: A plugin for displaying Featured Perspectives in posts.
 Author: Versa
-Version: 1.0
+Version: 1.1
 Author URI: http://www.electnext.com
 License: GPLv2 or later
 */
