@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Featured Perspectives
-Plugin URI: http://www.electnext.com/
+Plugin URI: http://www.versahq.com/
 Description: A plugin for displaying Featured Perspectives in posts.
 Author: Versa
-Version: 1.1
-Author URI: http://www.electnext.com
+Version: 1.2
+Author URI: http://www.versahq.com
 License: GPLv2 or later
 */
 

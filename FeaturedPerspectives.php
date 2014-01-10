@@ -1,10 +1,10 @@
 <?php
 
 class FeaturedPerspectives {
-  private $version = '1.1';
+  private $version = '1.2';
   private $script_url = '/api/v1/enxt.js';
-  private $site_name = 'electnext.com';
-  private $email_contact = 'apikey@electnext.com';
+  private $site_name = 'versahq.com';
+  private $email_contact = 'apikey@versaHQ.com';
   private $api_key;
   private $short_title;
   private $title;
@@ -149,6 +149,7 @@ class FeaturedPerspectives {
             })();
           //]]>
         </script>
+        <noscript>Please enable JavaScript to view the <a href='https://{$this->site_name}?utm_source=noscript&utm_medium=richardson_widget' target='_blank'>featured perspectives by Versa.</a></noscript>
       ";
 
       $content .= $fp;
