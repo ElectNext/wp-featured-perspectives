@@ -1,6 +1,6 @@
 === Featured Perspectives by Versa ===
 Contributors: electnext, toppa
-Donate link: http://www.versahq.com/
+Donate link: https://versahq.com/
 Tags: posts, news, comments, commentary, opinion
 Requires at least: 3.3
 Tested up to: 3.8
