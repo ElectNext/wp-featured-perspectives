@@ -149,7 +149,7 @@ class FeaturedPerspectives {
             })();
           //]]>
         </script>
-        <noscript>Please enable JavaScript to view the <a href='https://{$this->site_name}?utm_source=noscript&utm_medium=richardson_widget' target='_blank'>featured perspectives by Versa.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a href='https://{$this->site_name}?utm_source=noscript&utm_medium=richardson_widget' target='_blank'>Featured Perspectives by Versa.</a></noscript>
       ";
 
       $content .= $fp;
