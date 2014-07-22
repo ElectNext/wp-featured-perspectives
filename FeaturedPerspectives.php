@@ -1,7 +1,7 @@
 <?php
 
 class FeaturedPerspectives {
-  private $version = '1.2';
+  private $version = '1.3';
   private $script_url = '/api/v1/enxt.js';
   private $site_name = 'versahq.com';
   private $email_contact = 'apikey@versaHQ.com';
@@ -173,8 +173,6 @@ class FeaturedPerspectives {
   }
 
   static public function parameterize($string, $sep = '-') {
-    # replace accented chars with their ascii equivalents
-    $parameterized_string = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $string);
     # Turn unwanted chars into the separator
     $parameterized_string = preg_replace('/[^a-zA-Z0-9\-_]+/', $sep, $parameterized_string);
     # Remove leading/trailing separator.

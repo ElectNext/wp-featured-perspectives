@@ -1,10 +1,10 @@
 === Featured Perspectives by Versa ===
-Contributors: electnext, toppa
+Contributors: versa, toppa
 Donate link: https://versahq.com/
 Tags: posts, news, comments, commentary, opinion
 Requires at least: 3.3
 Tested up to: 3.8
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 
 A plugin for news publishers using WordPress. Our plugin automatically adds Featured Perspectives to your posts. We showcase multiple expert perspectives for readers, and share that premium revenue back with you.
@@ -22,6 +22,7 @@ We believe in a thriving press, and an informed and engaged public. So we've cre
 
 == Changelog ==
 
+= 1.3 = Remove call to iconv as it has various issues with PHP 5.4.x
 = 1.2 = Update domain name to versahq.com
 = 1.1 = Bug fix: correct the article ID used in the JS snippet
 = 1.0 = First version
