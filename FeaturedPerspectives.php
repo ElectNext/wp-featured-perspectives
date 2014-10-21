@@ -134,7 +134,7 @@ class FeaturedPerspectives {
     if (is_main_query() && is_single()) {
       $guid = FeaturedPerspectives::get_post_guid();
       $fp = "
-        <script data-electnext id='enxt-script' type='text/javascript'>
+        <script data-electnext data-cfasync='false' id='enxt-script' type='text/javascript'>
           //<![CDATA[
             var _enxt = _enxt || [];
             _enxt.push(['set_article', '{$guid}']);
