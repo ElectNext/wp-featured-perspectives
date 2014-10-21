@@ -174,7 +174,7 @@ class FeaturedPerspectives {
 
   static public function parameterize($string, $sep = '-') {
     # Turn unwanted chars into the separator
-    $parameterized_string = preg_replace('/[^a-zA-Z0-9\-_]+/', $sep, $parameterized_string);
+    $parameterized_string = preg_replace('/[^a-zA-Z0-9\-_]+/', $sep, $string);
     # Remove leading/trailing separator.
     $parameterized_string = preg_replace("/^$sep|$sep$/", '', $parameterized_string);
     $parameterized_string = strtolower($parameterized_string);
