@@ -1,7 +1,7 @@
 <?php
 
 class FeaturedPerspectives {
-  private $version = '1.3';
+  private $version = '1.4';
   private $script_url = '/api/v1/enxt.js';
   private $site_name = 'versahq.com';
   private $email_contact = 'apikey@versaHQ.com';
